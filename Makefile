@@ -8,6 +8,7 @@ default:
 	cp cmake-build-debug/clox .
 
 run:
+	make
 	./clox ${FILE}
 
 clean:
