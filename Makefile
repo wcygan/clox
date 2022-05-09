@@ -1,8 +1,7 @@
 FILE := scripts/hello.lox
 
 default:
-	rm clox
-	rm -rf cmake-build-debug
+	make clean
 	cmake -S . -B cmake-build-debug
 	make -C cmake-build-debug
 	cp cmake-build-debug/clox .
@@ -12,4 +11,5 @@ run:
 	./clox ${FILE}
 
 clean:
+	rm -f clox
 	rm -rf cmake-build-debug
