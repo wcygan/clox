@@ -1,4 +1,5 @@
 #include "vm.h"
+#include "compiler.h"
 #include "stdio.h"
 #include "debug.h"
 #include "value.h"
@@ -78,10 +79,9 @@ void freeVM() {
 
 }
 
-InterpretResult interpret(Chunk *chunk) {
-    vm.chunk = chunk;
-    vm.ip = vm.chunk->code;
-    return run();
+InterpretResult interpret(const char* source) {
+    compile(source);
+    return INTERPRET_OK;
 }
 
 void push(Value value) {
