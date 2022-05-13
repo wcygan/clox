@@ -42,4 +42,6 @@ void freeValueArray(ValueArray *array);
 
 void printValue(Value value);
 
+bool valuesEqual(Value a, Value b);
+
 #endif //CLOX_VALUE_H
