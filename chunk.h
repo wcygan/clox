@@ -15,6 +15,8 @@ typedef enum {
     OP_GREATER,
     OP_LESS,
     OP_TRUE,
+    OP_PRINT,
+    OP_POP,
     OP_FALSE,
     OP_ADD,
     OP_SUBTRACT,
