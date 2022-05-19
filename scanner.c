@@ -146,12 +146,16 @@ static TokenType identifierType() {
         case 't':
             if (scanner.current - scanner.start > 1) {
                 switch (scanner.start[1]) {
-                    case 'h': return checkKeyword(2, 2, "is", TOKEN_THIS);
-                    case 'r': return checkKeyword(2, 2, "ue", TOKEN_TRUE);
+                    case 'h':
+                        return checkKeyword(2, 2, "is", TOKEN_THIS);
+                    case 'r':
+                        return checkKeyword(2, 2, "ue", TOKEN_TRUE);
                 }
             }
             break;
     }
+
+    return TOKEN_IDENTIFIER;
 }
 
 static Token identifier() {
@@ -217,13 +221,17 @@ Token scanToken() {
         case '*':
             return makeToken(TOKEN_STAR);
         case '!':
-            return makeToken(match('=') ? TOKEN_BANG_EQUAL : TOKEN_BANG);
+            return makeToken(
+                    match('=') ? TOKEN_BANG_EQUAL : TOKEN_BANG);
         case '=':
-            return makeToken(match('=') ? TOKEN_EQUAL_EQUAL : TOKEN_EQUAL);
+            return makeToken(
+                    match('=') ? TOKEN_EQUAL_EQUAL : TOKEN_EQUAL);
         case '<':
-            return makeToken(match('=') ? TOKEN_LESS_EQUAL : TOKEN_LESS);
+            return makeToken(
+                    match('=') ? TOKEN_LESS_EQUAL : TOKEN_LESS);
         case '>':
-            return makeToken(match('=') ? TOKEN_GREATER_EQUAL : TOKEN_GREATER);
+            return makeToken(
+                    match('=') ? TOKEN_GREATER_EQUAL : TOKEN_GREATER);
         case '"':
             return string();
     }
