@@ -3,12 +3,11 @@
 #include "stdlib.h"
 #include "common.h"
 #include "scanner.h"
-
-#ifdef DEBUG_PRINT_CODE
-
 #include "debug.h"
 #include "object.h"
 #include "string.h"
+
+#ifdef DEBUG_PRINT_CODE
 
 #endif
 
@@ -119,7 +118,6 @@ static bool match(TokenType type) {
 static void emitByte(uint8_t byte) {
     writeChunk(currentChunk(), byte, parser.previous.line);
 }
-
 
 static void emitBytes(uint8_t byte1, uint8_t byte2) {
     emitByte(byte1);
